@@ -1,0 +1,28 @@
+# PATTERNS
+
+# SOLUTION 1
+# First we need to read an integer number from the console by using; "int(input())".
+
+n = int(input())
+
+# Use a "for" loop from 1 to n + 1 (in order to include n) and print "*" multiplied by the rows.
+# This will give us all lines of the pattern from the single "*" and adding "*" for every row.
+
+for row in range(1, n + 1):
+    print('*' * row)
+
+# Write a second "for" loop starting from 1 to 1 and print "*" - row.
+
+for row in range(1, n):
+    print('*' * (n - row))
+
+# SOLUTION 2
+# You can use the following syntax;
+
+n = int(input())
+
+for row in range(1, n + 1):
+    print('*' * row)
+
+for row in range(n-1, 0, -1):
+    print("*" * row)
