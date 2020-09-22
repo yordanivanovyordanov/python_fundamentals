@@ -1,0 +1,18 @@
+# FIND THE CAPITALS
+
+# SOLUTION
+# First we need to read the word from the console by using; "input()".
+# Declare a list variable for the results.
+
+word = input()
+result = []
+
+# Use a "for" loop to go through each index in the word.
+# Create a conditional to check if the character for the current index is upper using the function isupper().
+# Append the result list by adding the index of the character to the list if it's upper.
+# Print out the result.
+
+for i in range(len(word)):
+  if word[i].isupper():
+    result.append(i)
+print(result)
