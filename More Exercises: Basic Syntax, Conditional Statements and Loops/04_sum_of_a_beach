@@ -1,0 +1,14 @@
+# SUM OF A BEACH
+# Beaches are filled with sand, water, fish, and sun. Given a string, calculate how many times the words;
+# "Sand", "Water", "Fish", and "Sun" appear (case insensitive).
+
+# SOLUTION
+# Read the input from the console and convert it into lower case using the lower() function.
+
+string = input().lower()
+
+# Use the count() method to count the number of times we have "sand", "water", "fish" and "sun" in the list.
+# Print out the result.
+
+count = string.count("sand") + string.count("water") + string.count("fish") + string.count("sun")
+print(count)
