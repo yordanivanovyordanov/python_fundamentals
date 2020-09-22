@@ -1,0 +1,42 @@
+# FIND THE LARGEST
+# Given a number, print the largest number that can be formed from the digits of the given number.
+
+# SOLUTION 1
+# Read the number as a tuple from the console.
+# Use the join() method  which takes all items and joins them into one string.
+# Use an empty string as a separator.
+# Use the sorted() function which returns a sorted list of the specified iterable object.
+# Use "reverse=True" to reverse the list.
+
+num = list(input())
+print("".join(sorted(num, reverse=True)))
+
+# SOLUTION 2
+# Read the number from the console.
+# Parse it into a string.
+# Define a variable for the list of digits.
+
+num = input()
+num = str(num)
+
+arr_digits = []
+
+# Create a function which sorts and reverses the list of digits and joins them together.
+
+
+def find_max_num(digits):
+    digits.sort(reverse=True)
+    number = ''.join(digits)
+
+    return number
+
+
+# Use a "for" loop to go through the list of digits.
+# Use the function we have created earlier to sort out the digits and give us the biggest to smallest.
+
+for digit in range(len(num)):
+    arr_digits.append(num[digit])
+
+# Print out the result.
+
+print(find_max_num(arr_digits))
