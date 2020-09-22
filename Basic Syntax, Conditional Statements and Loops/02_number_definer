@@ -1,0 +1,71 @@
+# NUMBER DEFINER
+# Write a program that reads a floating-point number and prints "zero" if the number is zero.
+# Otherwise, print "positive" or "negative". Add "small" if the absolute value of the number is
+# less than 1, or "large" if it exceeds 1 000 000.
+
+# SOLUTION 1
+# First we need to read a floating point number from the console by using; "float(input())".
+
+num = float(input())
+
+# Use the condition "if" to check if the number is equal to zero and if it is print "zero".
+
+if num == 0:
+    print('zero')
+
+# Use the condition "elif" to check if the number is between 0 and 1 ("small positive").
+
+elif num > 0 and num < 1:  # or use simplified syntax; elif 0 < num < 1:
+    print('small positive')
+
+# Use the condition "elif" to check if the number is bigger or equal to 1 and smaller ot equal to 1 000 000
+# and print "positive".
+
+elif num >= 1 and num <= 1000000:  # or use simplified syntax; elif 1 <= num <= 1000000:
+    print('positive')
+
+# Use the condition "elif" to check if the number is bigger than 1 000 000 and print "large positive".
+elif num > 1000000:
+    print('large positive')
+
+# Use the same logic for the negative numbers.
+
+elif num < 0 and num > -1:  # or use simplified syntax; elif 0 > num > -1:
+        print('small negative')
+elif num <= -1 and num >= -1000000:  # or use simplified syntax; elif -1 >= num >= -1000000:
+    print('negative')
+elif num < -1000000:
+    print('large negative')
+
+# SOLUTION 2
+# You could use nested conditions here to solve this problem.
+# First we need to read a floating point number from the console by using; "float(input())".
+
+num = float(input())
+
+# Use the condition "if" to check if the number is equal to zero and if it is print "zero".
+
+if num == 0:
+    print('zero')
+
+# Use the condition "elif" to check if the number is bigger than 0 and nestled if-statements to check if the number
+# is; between 0 and 1 ("small positive"), larger than 1 000 000 ("large positive") or else ("positive") number.
+
+elif num > 0:
+    if num < 1:
+        print('small positive')
+    elif num > 1000000:
+        print('large positive')
+    else:
+        print('positive')
+
+# Use the same logic for the negative numbers and as demonstrated bellow you can use the build in "abs"function
+# which gives you the absolute value of a number.
+
+else:
+    if abs(num) < 1:
+        print('small negative')
+    elif abs(num) > 1000000:
+        print('large negative')
+    else:
+        print('negative')
