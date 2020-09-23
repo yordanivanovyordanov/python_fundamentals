@@ -1,0 +1,14 @@
+# CONVERT METERS TO KILOMETERS
+# You will be given an integer that will be distance in meters. Write a program that converts meters to
+# kilometers formatted to the second decimal point.
+
+# SOLUTION
+# Read the meters from the console.
+
+meters = int(input())
+
+# Divide the meters by 1000 and round up to the second decimal place using ":.2f".
+# Print out the result.
+
+kilometers = meters / 1000
+print(f'{kilometers:.2f}')
