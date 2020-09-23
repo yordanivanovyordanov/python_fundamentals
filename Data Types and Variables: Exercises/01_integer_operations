@@ -1,0 +1,18 @@
+# INTEGER OPERATIONS
+# Read four integer numbers. Add first to the second, divide (integer) the sum by the third number and
+# multiply the result by the fourth number. Print the result.
+
+# SOLUtION
+# Read the 4 numbers from th console.
+
+num_1 = int(input())
+num_2 = int(input())
+num_3 = int(input())
+num_4 = int(input())
+
+# Declare a variable and use parenthesis to perform the addition before and division
+# and the division before the multiplication.
+# Use "int" to round the number to the nearest integer after the division.
+
+result = (int((num_1 + num_2) / num_3) * num_4)
+print(result)
