@@ -1,0 +1,16 @@
+# POUNDS TO DOLLARS
+# Write a program that converts British pounds to US dollars formatted to the 3th decimal point.
+# 1 British Pound = 1.31 Dollars
+
+# SOLUTION
+# Read how many ponds we need to convert to dollard from the console.
+
+pounds = int(input())
+
+# Multiply the pounds by 1.31 to receive the amount in dollars.
+
+dollars = pounds * 1.31
+
+# Round up the result to the third decimal place and print it out.
+
+print(f'{dollars:.3f}')
