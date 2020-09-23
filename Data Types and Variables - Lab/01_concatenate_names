@@ -1,0 +1,12 @@
+# CONCATENATE NAMES
+# Read two names and a delimiter. Print the names joined by the delimiter.
+
+# SOLUTION
+# From the console using the input() function read the names and the delimiter.
+# Print out the result using string interpolation "(f'{name_1}{delimiter}{name_2}')"
+
+name_1 = input()
+name_2 = input()
+delimiter = input()
+
+print(f'{name_1}{delimiter}{name_2}')
