@@ -1,0 +1,15 @@
+# TRIPLES OF LATIN LETTERS
+# Write a program to read an integer n and print all triples of the first n small Latin letters,
+# ordered alphabetically:
+
+# SOLUTION
+# Read how many triple if small Latin letter we need to print.
+# Use nested "for" loops. For each iteration generate new letters.
+# Print them out.
+
+n = int(input())
+
+for i in range(0, n):
+    for j in range(0, n):
+        for k in range(0, n):
+            print(f'{chr(97 + i)}{chr(97 + j)}{chr(97 + k)}')
