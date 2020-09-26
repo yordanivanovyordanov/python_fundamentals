@@ -1,0 +1,35 @@
+# SUM OF CHARS
+# Write a program, which sums the ASCII codes of n characters and prints the sum on the console.
+# Input
+# •	On the first line, you will receive n – the number of lines, which will follow
+# •	On the next n lines – you will receive letters from the Latin alphabet
+# Output
+# Print the total sum in the following format:
+# The sum equals: {total_sum}
+# Constraints
+# •	n will be in the interval [1…20].
+# •	The characters will always be either upper or lower-case letters from the English alphabet
+# •	You will always receive one letter per line
+
+# SOLUTION
+# Read the number of characters we will receive.
+# Declare a variable for the ASCII sum of the of the characters.
+
+# ASCII TABLE - abbreviated from American Standard Code for Information Interchange, is a character encoding
+# standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment,
+# and other devices. Most modern character-encoding schemes are based on ASCII, although they support many
+# additional characters.
+
+number_of_chars = int(input())
+
+sum_of_chars = 0
+
+# Use a "for" loop to go through all characters.
+# Read all letters from the console.
+# Use the "ord()" function to add the digit representation of the character to the sum.
+# Print out the result.
+
+for char in range(1, number_of_chars + 1):
+    letter = input()
+    sum_of_chars += ord(letter)
+print(f'The sum equals: {sum_of_chars}')
