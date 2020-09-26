@@ -1,0 +1,23 @@
+# PRINT PART OF THE ASCII TABLE
+
+# ASCII TABLE - abbreviated from American Standard Code for Information Interchange, is a character encoding
+# standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment,
+# and other devices. Most modern character-encoding schemes are based on ASCII, although they support many
+# additional characters.
+
+# Find online more information about ASCII (American Standard Code for Information Interchange) and write
+# a program that prints part of the ASCII table of characters on the console.  On the first line of input
+# you will receive the char index you should start with and on the second line - the index of the last
+# character you should print.
+
+# SOLUTION
+# Read the start and the end char index.
+# Use a "for" loop to go through all characters within the range.
+# Use the "chr()" function to print out the characters corresponding to the numbers in the range.
+# Use the parameter 'end=""' to print out the result on the same line.
+
+start_char = int(input())
+end_char = int(input())
+
+for chars in range(start_char, end_char + 1):
+    print(chr(chars), end=" ")
