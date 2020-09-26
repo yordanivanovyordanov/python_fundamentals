@@ -1,0 +1,34 @@
+# ELEVATOR
+# Calculate how many courses will be needed to elevate n persons by using an elevator with capacity
+# of p persons. The input holds two lines:
+# the number of people n and the capacity p of the elevator.
+
+# SOLUTION 1
+# Read the number of people and the capacity of the elevator from the console.
+# Find the floored quotient of people and capacity "people // capacity"
+# Use a conditional to check if the floored quotient of people and capacity is different than 0.
+# If it is add 1 to the courses and print out the result.
+
+people = int(input())
+capacity = int(input())
+
+courses = people // capacity
+
+if not people % capacity == 0:
+    print(courses + 1)
+else:
+    print(courses)
+
+# SOLUTION 2
+# Another approach is to round up people / cpacity to the nearest integer (ceiling),
+# e.g. 17/3 = 5.67  rounds up to 6.
+# For the round-up calculation you might use math.ceil() function.
+# Before you can use it , you need to import math library:
+
+import math
+
+people = int(input())
+capacity = int(input())
+
+courses = math.ceil(people/capacity)
+print(courses)
