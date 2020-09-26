@@ -1,0 +1,39 @@
+# WATER OVERFLOW
+# You have a water tank with capacity of 255 liters. On the next n lines, you will receive liters of water,
+# which you have to pour in your tank. If the capacity is not enough, print "Insufficient capacity!"
+# and continue reading the next line. On the last line, print the liters in the tank.
+# Input
+# The input will be on two lines:
+# •	On the first line, you will receive n – the number of lines, which will follow
+# •	On the next n lines – you receive quantities of water, which you have to pour in the tank
+# Output
+# Every time you do not have enough capacity in the tank to pour the given liters, print:
+# Insufficient capacity!
+# On the last line, print only the liters in the tank.
+# Constraints
+# •	n will be in the interval [1…20]
+# •	liters will be in the interval [1…1000]
+
+# SOLUTION
+# Read the input.
+# Declare a variable with the tank capacity.
+# Declare a variable with the amount of water in the tank.
+# Use a "for" loop to go through all the inputs.
+# Use a conditional to check if the the amount of water in every input added to the water in the tank
+# is less than the capacity of the tank. If it is add it to the total amount of water in the tank.
+# If it's not, print out "Insufficient capacity!".
+# Out of the loop, print out the amount of water in the tank.
+
+n = int(input())
+capacity = 255
+
+liters_in_tank = 0
+
+for i in range(n):
+    litters = int(input())
+
+    if liters_in_tank + litters <= capacity:
+        liters_in_tank += litters
+    else:
+        print(f'Insufficient capacity!')
+print(liters_in_tank)
