@@ -1,0 +1,19 @@
+# PRIME NUMBER CHECKER
+# Write a program to check if a number is prime (only wholly divisible by itself and one).
+# The input comes as an integer number.
+# The output should be true for prime number and false otherwise.
+
+# SOLUTION
+# Use a "While" loop to iterate between 2 and n.
+# If n % i == 0, the number is not prime. Print "False".
+# Else the number is prime. Print "True".
+
+while True:
+    n = int(input())
+    for i in range(2, n):
+        if n % i == 0:
+            print('False')
+            break
+    else:
+        print('True')
+        break
