@@ -1,0 +1,30 @@
+# LIST STATISTICS
+# You will be given a number n. On the next n lines you will receive integers.
+# You have to create and print two lists:
+# •	One with all the positives (including 0) numbers
+# •	One with all the negatives numbers
+# Finally print the following message: "Count of positives: {count_positives}.
+# Sum of negatives: {sum_of_negatives}"
+
+# SOLUTION
+# Read n from the console.
+# Create a list for the positive and a list for the negative numbers.
+# Loop through the numbers in range n.
+# Use a conditional to check if the number is positive or negative.
+# Print out the positive and negative lists, the number of positive values and the sum of negative values.
+
+n = int(input())
+positive_list = []
+negative_list = []
+
+for number in range(n):
+    current_number = int(input())
+
+    if current_number >= 0:
+        positive_list.append(current_number)
+    else:
+        negative_list.append(current_number)
+
+print(positive_list)
+print(negative_list)
+print(f"Count of positives: {len(positive_list)}. Sum of negatives: {sum(negative_list)}")
