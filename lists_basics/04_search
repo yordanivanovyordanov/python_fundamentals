@@ -1,0 +1,31 @@
+# SEARCH
+# You will receive a number n and a word. On the next n lines you will be given some strings.
+# You have to add them in a list and print them. After that you have to filter out only the strings
+# that include the given word and print that list too.
+
+# SOLUTION
+# Read n and word from the console.
+# Create an empty string, which will hold the values of the current string.
+# Loop through the strings and add the new strings to the list.
+# Print out the strings.
+
+n = int(input())
+word = input()
+strings = []
+
+for string in range(n):
+    current_string = input()
+    strings.append(current_string)
+
+print(strings)
+
+# Loop though the strings.
+# Check if the string contains the word.
+# If the word is not present in the string, remove the string from the list.
+# Print out the result.
+
+for string in range(len(strings) -1, -1, -1):
+    if word not in strings[string]:
+        strings.remove(strings[string])
+
+print(strings)
