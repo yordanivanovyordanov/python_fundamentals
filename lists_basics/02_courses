@@ -1,0 +1,18 @@
+# COURSES
+# You will receive a single number n. On the next n lines you will receive names of courses.
+# You have to create a list of them and print it.
+
+# SOLUTION
+# Read the number of lines from the console.
+# Create an empty list.
+# Loop through n-number of times and use a variable to read the current course from the console.
+# Add the current course to the list, and print it.
+
+n = int(input())
+list_of_courses = []
+
+for line in range(n):
+    current_course = input()
+    list_of_courses.append(current_course)
+
+print(list_of_courses)
