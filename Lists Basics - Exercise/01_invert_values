@@ -1,0 +1,19 @@
+#  INVERT VALUES
+# Write a program that receives a single string containing numbers separated by a single space.
+# Print a list containing the opposite of each number.
+
+# SOLUTION
+# Read the string from the console.
+# Use the split method "split()" to convert the string into other data types like lists by breaking
+# by into pieces. Python provides us with two methods: .split() and .rsplit().
+# Create a list to hold the opposite numbers.
+# Loop through the numbers in the string.
+# Use the "append(-int(num))" to convert the value of the numbers in the string.
+
+num_string = input().split(" ")
+nums = []
+
+for num in num_string:
+    nums.append(-int(num))
+
+print(nums)
