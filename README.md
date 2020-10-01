@@ -1,2 +1,2 @@
 # python_fundamentals
-Solutions to different problems
+SoftUni Python Fundamentals Course
