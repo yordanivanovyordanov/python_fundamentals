@@ -1,0 +1,66 @@
+# TIC TAC TOE
+# You will receive a field of a tic-tac-toe game in three lines containing numbers separated by a single space.
+# Legend:
+# •	0 - empty space
+# •	1 - first player move
+# •	2 - second player move
+# Find out who the winner is. If the first player wins print "First player won",
+# otherwise if the second player wins print "Second player won", otherwise print "Draw!"Инсрт
+
+# SOLUTION
+# Import NumPy (NumPy’s main object is the homogeneous multidimensional array. It is a table of elements
+# (usually numbers), all of the same type, indexed by a tuple of non-negative integers.
+# In NumPy dimensions are called axes. For example, the coordinates of a point in 3D space [1, 2, 1]
+# has one axis. That axis has 3 elements in it, so we say it has a length of 3.
+# In the example pictured below, the array has 2 axes. The first axis has a length of 2,
+# the second axis has a length of 3.)
+
+import numpy as np
+
+# Read the lines from the console.
+
+line_1 = list(map(int, input().split(" ")))
+line_2 = list(map(int, input().split(" ")))
+line_3 = list(map(int, input().split(" ")))
+
+matrix = np.array([
+    line_1,
+    line_2,
+    line_3
+])
+
+# Create a variable with value None, which we will need later.
+
+winner = None
+
+# Loop through the matrices and check the lines and the diagonals.
+
+for i in range(3):
+
+    if len(set(matrix[:, i])) == 1:
+        winner = list(set(matrix[:, i]))[0]
+        break
+
+    elif len(set(matrix[i, :])) == 1:
+        winner = list(set(matrix[i, :]))[0]
+        break
+
+if len(set(matrix.diagonal())) == 1:
+    winner = list(set(matrix.diagonal()))[0]
+
+elif len(set(np.fliplr(matrix).diagonal())) == 1:
+    winner = list(set(np.fliplr(matrix).diagonal()))[0]
+
+# If there is a winner, check if the winner is 1 or 2, and print it out.
+# Else print out 'Draw!'
+
+if winner is not None:
+
+    if winner == 1:
+        print("First player won")
+
+    elif winner == 2:
+        print("Second player won")
+
+else:
+    print("Draw!")
