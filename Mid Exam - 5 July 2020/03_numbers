@@ -1,0 +1,40 @@
+# NUMBERS
+# Write a program to read a sequence of integers and find and print the top 5 numbers that are greater than
+# the average value in the sequence, sorted in descending order.
+# Input
+# Read from the console a single line holding space separated number.
+# Output
+# Print the above described numbers on a single line, space separated. If less than 5 numbers hold
+# the above mentioned property, print less than 5 numbers. Print “No” if no numbers hold the above property.
+# Constraints
+# All input numbers are integers in range [-1 000 000 … 1 000 000]. The count of numbers is
+# in range [1…10 000].
+
+# SOLUTION
+# Read and split the numbers from the list.
+# Calculate the average.
+# Create a result list.
+
+numbers = list(map(int, input().split()))
+average = sum(numbers) / len(numbers)
+result = []
+
+# Check if there are less than 5 numbers in the list and print 'No'.
+
+if len(numbers) < 5:
+    print("No")
+
+# Loop through the numbers in the list and chek if they are bigger than the average.
+# Add them to the result list.
+
+for num in numbers:
+    if num > average:
+        result.append(num)
+
+# Use the .sort() method to reverse the list.
+
+result.sort(reverse=True)
+
+# Unpack the biggest 5 numbers, separated by a single space.
+
+print(*result[0:5], sep=' ')
