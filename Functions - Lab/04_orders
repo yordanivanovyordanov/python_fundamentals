@@ -1,0 +1,29 @@
+# ORDERS
+# Write a function that calculates the total price of an order and prints it on the console.
+# The function should receive one of the following products: coffee, coke, water, snacks;
+# and a quantity of the product. The prices for a single piece of each product are:
+# •	coffee - 1.50
+# •	water - 1.00
+# •	coke - 1.40
+# •	snacks - 2.00
+# Print the result formatted to the second decimal place.
+
+# SOLUTION
+product = input()
+amount = float(input())
+
+
+def order_total(product_name, number_of_products):
+    result = 0
+    if product_name == "coffee":
+        result = 1.5 * number_of_products
+    elif product_name == "water":
+        result = 1.00 * number_of_products
+    elif product_name == "coke":
+        result = 1.40 * number_of_products
+    elif product_name == "snacks":
+        result = 2.00 * number_of_products
+    return result
+
+
+print(f'{order_total(product, amount):.2f}')
