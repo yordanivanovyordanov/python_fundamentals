@@ -1,0 +1,15 @@
+# CALCULATE RECTANGLE AREA
+# Create a function that calculates and returns the area of a rectangle by given width and height:
+
+# SOLUTION
+side_a = int(input())
+side_b = int(input())
+
+
+def rectangle_area(a, b):
+    result = 0
+    result = a * b
+    return result
+
+
+print(rectangle_area(side_a, side_b))
