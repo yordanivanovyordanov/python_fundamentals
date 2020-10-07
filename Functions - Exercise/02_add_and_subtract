@@ -1,0 +1,29 @@
+# ADD AND SUBTRACT
+# You will receive three integer numbers.
+# Write a function sum_numbers() to get the sum of the first two integers and subtract() function that
+# subtracts the third integer from the result. Wrap the two functions in a function
+# called add_and_subtract() which will receive the three numbers.
+
+# SOLUTION
+num_1 = int(input())
+num_2 = int(input())
+num_3 = int(input())
+
+
+def sum_numbers(number_1, number_2):
+    sum_result = number_1 + number_2
+    return sum_result
+
+
+def subtract(first_num, second_num):
+    return first_num - second_num
+
+
+def add_and_subtract(number_1, number_2, number_3):
+    sum_result = sum_numbers(number_1, number_2)
+    result = subtract(sum_result, number_3)
+    return result
+
+
+total_sum = add_and_subtract(num_1, num_2, num_3)
+print(total_sum)
