@@ -1,0 +1,21 @@
+# PALINDROME INTEGERS
+# A palindrome is a number which reads the same backward as forward, such as 323 or 1001.
+# Write a function which receives a list of positive integers and checks if each integer is a palindrome
+# or not. Print the results on the console
+# The input will be a single string containing the numbers separated by comma and space ", "
+
+# SOLUTION
+numbers_list = input()
+numbers = numbers_list.split(", ")
+
+
+def palindrome_integers(numbers_str):
+    reversed_numbers_str = numbers_str[::-1]
+    if reversed_numbers_str == numbers_str:
+        return True
+    else:
+        return False
+
+
+for num in numbers:
+    print(palindrome_integers(num))
