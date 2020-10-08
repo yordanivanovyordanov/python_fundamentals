@@ -1,0 +1,22 @@
+# LOADING BAY
+# You will receive a single integer number between 0 and 100 which is divided with 10 without residue
+# (0, 10, 20, 30...).
+# Your task is to create a function that visualizes a loading bar depending on that number you
+# have received in the input.
+
+# SOLUTION
+num = int(input())
+
+
+def loading_bar(number):
+    if number in range(0, 101) and number % 10 == 0:
+        if number < 100:
+            repetitions = number // 10
+            bar = f"{number}% [{'%' * repetitions}{'.' * (10 - repetitions)}]\nStill loading..."
+            return bar
+        else:
+            bar = f"100% Complete!\n[{'%' * 10}]"
+            return bar
+
+
+print(loading_bar(num))
