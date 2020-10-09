@@ -1,0 +1,23 @@
+# FACTORIAL DIVISION
+# Write a function that receives two integer numbers. Calculate factorial of each number.
+# Divide the first result by the second and print the division formatted to the second decimal point.
+
+# SOLUTION
+number = int(input())
+divisor = int(input())
+
+
+def factorial_division(num_1, num_2):
+    factorial_num_1 = 1
+    factorial_num_2 = 1
+
+    for i in range(0, num_1):
+        factorial_num_1 *= num_1 - i
+    for i in range(0, num_2):
+        factorial_num_2 *= num_2 - i
+
+    result = factorial_num_1 / factorial_num_2
+    return f"{result:.2f}"
+
+
+print(factorial_division(number, divisor))
