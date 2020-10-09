@@ -1,0 +1,22 @@
+# MULTIPLICATION SIGN
+# You are given a number num1, num2 and num3. Write a program that finds if num1 * num2 * num3 (the product)
+# is negative, positive or zero. Try to do this WITHOUT multiplying the 3 numbers.
+
+# SOLUTION
+number_1 = int(input())
+number_2 = int(input())
+number_3 = int(input())
+
+
+def multiplication_sign(num_1, num_2, num_3):
+    sum_nums = num_1 * num_2 * num_3
+    if sum_nums > 0:
+        result = 'positive'
+    elif sum_nums < 0:
+        result = 'negative'
+    else:
+        result = 'zero'
+    return result
+
+
+print(multiplication_sign(number_1, number_2, number_3))
