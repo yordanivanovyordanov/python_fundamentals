@@ -1,0 +1,23 @@
+# DATA TYPES
+# Write a program that, depending on the first line of the input, reads an int, double or string.
+# •	If the data type is int, multiply the number by 2.
+# •	If the data type is real, multiply the number by 1.5 and format it to the second decimal point.
+# •	If the data type is string, surround the input with "$".
+# Print the result on the console.
+
+# SOLUTION
+type_of_data = input()
+data = input()
+
+
+def data_types(data_type, num):
+    if data_type == "int":
+        result = int(data) * 2
+    elif data_type == "real":
+        result = f'{float(data) * 1.5:.2f}'
+    elif data_type == "string":
+        result = f'${data}$'
+    return result
+
+
+print(data_types(type_of_data, data))
