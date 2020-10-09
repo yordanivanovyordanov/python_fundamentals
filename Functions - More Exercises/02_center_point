@@ -1,0 +1,26 @@
+# CENTER POINT
+# You are given the coordinates of two points on a Cartesian coordinate system - X1, Y1, X2 and Y2.
+# Create a method that prints the point that is closest to the center of the coordinate system (0, 0)
+# in the format (X, Y). If the points are on a same distance from the center, print only the first one.
+# The resulting coordinates must be formated to the lowest integer
+
+# SOLUTION
+from math import sqrt
+x_1 = float(input())
+y_1 = float(input())
+x_2 = float(input())
+y_2 = float(input())
+
+
+def get_distance(x, y):
+    distance = sqrt((x - 0) ** 2 + (y - 0) ** 2)
+    return distance
+
+
+point_1_distance = get_distance(x_1, y_1)
+point_2_distance = get_distance(x_2, y_2)
+
+if point_1_distance > point_2_distance:
+    print(f"({int(x_2)}, {int(y_2)})")
+else:
+    print(f"({int(x_1)}, {int(y_1)})")
