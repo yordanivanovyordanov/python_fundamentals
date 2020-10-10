@@ -1,0 +1,49 @@
+# SHOPPING LIST
+# It’s the end of the week and it is time for you to go shopping, so you need to create a shopping
+# list first.
+# Input
+# You will receive an initial list with groceries separated by "!".
+# After that you will be receiving 4 types of commands, until you receive "Go Shopping!"
+# •	Urgent {item} - add the item at the start of the list.  If the item already exists, skip this command.
+# •	Unnecessary {item} - remove the item with the given name, only if it exists in the list.
+# Otherwise skip this command.
+# •	Correct {oldItem} {newItem} – if the item with the given old name exists, change its name with the new one.
+# If it doesn't exist, skip this command.
+# •	Rearrange {item} - if the grocery exists in the list, remove it from its current position and
+# add it at the end of the list.
+# Constraints
+# •	There won`t be any duplicate items in the initial list
+# Output
+# Print the list with all the groceries, joined by ", ".
+# •	"{firstGrocery}, {secondGrocery}, …{nthGrocery}"
+
+# SOLUTION
+shopping_list = input().split('!')
+
+while True:
+    line = input()
+
+    if line == 'Go Shopping!':
+        break
+    else:
+        line = line.split()
+        command = line[0]
+
+    if command == 'Urgent':
+        item = line[1]
+        if item not in shopping_list:
+            shopping_list.insert(0, item)
+    elif command == 'Unnecessary':
+        item = line[1]
+        if item in shopping_list:
+            shopping_list.remove(item)
+    elif command == 'Correct':
+        old_name = line[1]
+        new_name = line[2]
+        shopping_list = [new_name if el == old_name else el for el in shopping_list]
+    elif command == 'Rearrange':
+        item = line[1]
+        if item in shopping_list:
+            shopping_list.append(shopping_list.pop(shopping_list.index(item)))
+
+print(', '.join(shopping_list))
