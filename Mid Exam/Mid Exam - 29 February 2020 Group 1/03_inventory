@@ -1,0 +1,59 @@
+# INVENTORY
+# Input / Constraints
+# You will receive a journal with some Collecting items, separated with ', ' (comma and space).
+# After that, until receiving "Craft!" you will be receiving different commands.
+# Commands (split by " - "):
+# •	"Collect - {item}" – Receiving this command, you should add the given item in your inventory.
+# If the item already exists, you should skip this line.
+# •	"Drop - {item}" – You should remove the item from your inventory, if it exists.
+# •	"Combine Items - {oldItem}:{newItem}" – You should check if the old item exists,
+# if so, add the new item after the old one. Otherwise, ignore the command.
+# •	"Renew – {item}" – If the given item exists, you should change its position and put it last in your
+# inventory.
+# Output
+# After receiving "Craft!" print the items in your inventory, separated by ", " (comma and space).
+
+# SOLUTION
+items = input().split(", ")
+command_input = input()
+
+while command_input != "Craft!":
+
+    command_token = command_input.split(" - ")
+    command = command_token[0]
+    item = command_token[1]
+
+    if command == "Collect":
+        if item in items:
+            command_input = input()
+        else:
+            items.append(item)
+            command_input = input()
+
+    elif command == "Drop":
+        if item in items:
+            items.remove(item)
+            command_input = input()
+        else:
+            command_input = input()
+
+    elif command == "Combine Items":
+        combine_items = item.split(":")
+        old_item = combine_items[0]
+        new_item = combine_items[1]
+        for i in range(len(items)):
+            if items[i] == old_item:
+                items.insert(i + 1, new_item)
+                break
+        command_input = input()
+
+    elif command == "Renew":
+        if items[-1] == item:
+            command_input = input()
+        elif item in items:
+            items.append(items.pop(items.index(item)))
+            command_input = input()
+        else:
+            command_input = input()
+
+print(", ".join(items))
