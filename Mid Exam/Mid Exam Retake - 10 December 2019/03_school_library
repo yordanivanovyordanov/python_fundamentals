@@ -1,0 +1,55 @@
+# SCHOOL LIBRARY
+# On the first line you will receive a String, representing shelf with books in library.
+# Every book is separated with "&".
+#  On the next lines until you receive "Done" command, you will receive following commands:
+# •	Add Book | {book name}
+# o	Add a book at first place in the shelf.
+# o	If the book already is present on the shelf, ignore the command.
+# •	Take Book | {book name}
+# o	Remove the book with the given name only if the book is on the shelf, otherwise ignore this command.
+# •	Swap Books | {book1} | {book2}
+# o	If both books are on the shelf, swap their places.
+# •	Insert Book | {book name}
+# o	Add a book at the end of the book collection.
+# •	Check Book | {index}
+# o	Print the name of the book on the given index the book.
+# o	If the index is invalid, ignore the command.
+# Input
+# •	On the 1st line, you will receive a string, representing book names, separated with "&".
+# •	On the next lines, until you receive "Done", you will receive commands in the format described above.
+# Output
+# •	Print the collection of books joined by ", ".
+# "{firstBook}, {secondBook}, …{lastBook}"
+# Constraints
+# •	You won't receive duplicate book names in the initial list of books.
+
+# SOLUTION
+shelf = input().split("&")
+line = input().split(" | ")
+
+while line[0] != "Done":
+    command = line[0]
+    book = line[1]
+
+    if command == "Add Book":
+        if book not in shelf:
+            shelf.insert(0, book)
+    elif command == "Take Book":
+        if book in shelf:
+            shelf.remove(book)
+    elif command == "Swap Books":
+        book_2 = line[2]
+        if book in shelf and book_2 in shelf:
+            book_idx = shelf.index(book)
+            book_2_idx = shelf.index(book_2)
+            shelf[book_idx], shelf[book_2_idx] = shelf[book_2_idx], shelf[book_idx]
+    elif command == "Insert Book":
+        shelf.append(book)
+    elif command == "Check Book":
+        index = int(line[1])
+        if not index > len(shelf):
+            print(shelf[index])
+
+    line = input().split(" | ")
+
+print(", ".join(shelf))
