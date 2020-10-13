@@ -1,0 +1,33 @@
+parts = input().split("|")
+command = input().split()
+
+even_indices = list()
+odd_indices = list()
+
+while not command[0] == "Done":
+    if command[0] == "Move":
+        if command[1] == "Left":
+            if 0 < int(command[2]) < len(parts):
+                parts[int(command[2])], parts[int(command[2]) - 1] = parts[int(command[2]) - 1], parts[int(command[2])]
+        elif command[1] == "Right":
+            if 0 <= int(command[2]) < len(parts) - 1:
+                parts[int(command[2])], parts[int(command[2]) + 1] = parts[int(command[2]) + 1], parts[int(command[2])]
+
+    elif command[0] == "Check":
+        if command[1] == "Even":
+            for index in range(len(parts)):
+                if index % 2 == 0:
+                    even_indices.append(parts[int(index)])
+            print(" ".join(even_indices))
+            even_indices = []  
+        if command[1] == "Odd":
+            for index in range(len(parts)):
+                if index % 2 == 1:
+                    odd_indices.append(parts[int(index)])
+            print(" ".join(odd_indices))
+            odd_indices = []
+
+    command = input().split()
+
+weapon = "".join(parts)
+print(f"You crafted {weapon}!")
