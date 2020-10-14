@@ -1,0 +1,12 @@
+command = input()
+to_do_list = [None] * 10
+
+while not command == "End":
+    command = command.split("-")
+    index = int(command[0])
+    text = command[1]
+    to_do_list.insert(index, text)
+
+    command = input()
+
+print(list(filter(lambda x: x != None, to_do_list)))
