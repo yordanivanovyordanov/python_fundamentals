@@ -1,0 +1,24 @@
+train_length = int(input())
+train_carts = [0] * train_length
+
+command = input().split()
+
+while not command[0] == "End":
+
+    if command[0] == "add":
+        passengers = int(command[1])
+        train_carts[-1] += passengers
+
+    elif command[0] == "insert":
+        index = int(command[1])
+        passengers = int(command[2])
+        train_carts[index] += passengers
+
+    elif command[0] == "leave":
+        index = int(command[1])
+        passengers = int(command[2])
+        train_carts[index] -= passengers
+
+    command = input().split()
+
+print(train_carts)
