@@ -1,0 +1,14 @@
+electrons = int(input())
+electrons_list = []
+
+while electrons:
+    index = len(electrons_list) + 1
+    max_electrons = 2*index**2
+
+    if electrons <= max_electrons:
+        max_electrons = electrons
+
+    electrons_list.append(max_electrons)
+    electrons -= max_electrons
+
+print(electrons_list)
