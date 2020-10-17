@@ -1,0 +1,31 @@
+string = input()
+
+numbers = []
+non_numbers = []
+take_list = []
+skip_list = []
+
+for letter in string:
+    if letter.isdigit():
+        numbers.append(int(letter))
+    else:
+        non_numbers.append(letter)
+
+for index, number in enumerate(numbers):
+    if not index % 2 == 0:
+        skip_list.append(number)
+    else:
+        take_list.append(number)
+
+skipped_string = ''
+taken_string = ''
+non_numbers = ''.join(non_numbers)
+non_numbers_count = 0
+
+for index1, index2 in zip(skip_list, take_list):
+    taken_string += non_numbers[:index2]
+    non_numbers = non_numbers[index2:]
+    non_numbers = non_numbers[index1:]
+    non_numbers_count += index1
+
+print(taken_string)
