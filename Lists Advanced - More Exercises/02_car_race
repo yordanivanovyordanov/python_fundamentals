@@ -1,0 +1,25 @@
+lap_times = list(map(int, input().split()))
+
+
+def car_race(all_times):
+    finish_line = len(all_times) // 2
+    total_time = 0
+    for lap in range(finish_line):
+        if all_times[lap] == 0:
+            total_time *= 0.8
+        else:
+            total_time += all_times[lap]
+    return f'{total_time:.1f}'
+
+
+left_car_time = car_race(lap_times)
+lap_times.reverse()
+right_car_time = car_race(lap_times)
+
+if left_car_time > right_car_time:
+    winner = 'left'
+    winner_time = left_car_time
+else:
+    winner = 'right'
+    winner_time = right_car_time
+print(f'The winner is {winner} with total time: {winner_time}')
