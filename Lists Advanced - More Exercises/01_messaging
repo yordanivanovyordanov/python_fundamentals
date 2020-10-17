@@ -1,0 +1,24 @@
+numbers_list = list(map(int, input().split()))
+message = input()
+
+
+def sum_numbers(number):
+    result = 0
+    while number:
+        result, number = result + number % 10, number // 10
+    return result
+
+
+def secret_message(indeces, string):
+    string_list = list(string)
+    message = ''
+    for index in indeces:
+        if index >= len(string_list):
+            index -= len(string_list)
+        message += string_list[index]
+        del string_list[index]
+    return message
+
+
+index_list = list(map(sum_numbers, numbers_list))
+print(secret_message(index_list, message))
