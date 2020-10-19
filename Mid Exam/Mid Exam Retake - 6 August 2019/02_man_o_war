@@ -1,0 +1,46 @@
+pirate_ship_status = list(map(int, input().split('>')))
+warship_status = list(map(int, input().split('>')))
+max_health = int(input())
+
+command = input()
+pirate_count = 0
+not_sunken = True
+
+while command != 'Retire' and not_sunken:
+    command_list = command.split()
+    action = command_list[0]
+    
+    if action == 'Fire':
+        if 0 <= int(command_list[1]) < len(warship_status):
+            warship_status[int(command_list[1])] = warship_status[int(command_list[1])] - int(command_list[2])
+            if warship_status[int(command_list[1])] <= 0:
+                print(f'You won! The enemy ship has sunken.')
+                not_sunken = False
+                break
+                
+    elif action == 'Defend':
+        if 0 <= int(command_list[1]) < len(pirate_ship_status) and 0 <= int(command_list[2]) < len(pirate_ship_status):
+            for index, element in enumerate(pirate_ship_status[int(command_list[1]):(int(command_list[2]) + 1)]):
+                pirate_ship_status[index] -= int(command_list[3])
+                if pirate_ship_status[index] <= 0:
+                    print(f'You lost! The pirate ship has sunken.')
+                    not_sunken = False
+                    break
+                    
+    elif action == 'Repair':
+        if 0 <= int(command_list[1]) < len(pirate_ship_status):
+            if pirate_ship_status[int(command_list[1])] + int(command_list[2]) < max_health:
+                pirate_ship_status[int(command_list[1])] += int(command_list[2])
+            else:
+                pirate_ship_status[int(command_list[1])] = max_health
+                
+    elif action == 'Status':
+        for element in pirate_ship_status:
+            if element < max_health * 0.2:
+                pirate_count += 1
+        print(f'{pirate_count} sections need repair.')
+    command = input()
+
+if not_sunken:
+    print(f'Pirate ship status: {sum(pirate_ship_status)}')
+    print(f'Warship status: {sum(warship_status)}')
