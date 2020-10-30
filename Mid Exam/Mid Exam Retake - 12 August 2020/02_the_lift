@@ -1,0 +1,23 @@
+passengers = int(input())
+wagons = list(map(int, input().split()))
+MAX_SEATS_PER_WAGON = 4
+
+for index in range(len(wagons)):
+
+    while not wagons[index] == MAX_SEATS_PER_WAGON:
+        if passengers > 0:
+            wagons[index] += 1
+            passengers -= 1
+        else:
+            break
+
+all_seats = len(wagons) * MAX_SEATS_PER_WAGON
+taken_seats = sum(wagons)
+
+if passengers == 0 and taken_seats < all_seats:
+    print("The lift has empty spots!")
+
+elif passengers > 0 and taken_seats == all_seats:
+    print(f"There isn't enough space! {passengers} people in a queue!")
+
+print(' '.join(list(map(str, wagons))))
