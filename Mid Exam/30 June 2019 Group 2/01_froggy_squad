@@ -1,0 +1,38 @@
+names = input().split(" ")
+
+while True:
+    command = input().split(" ")
+
+    if command[0] == "Join":
+        name = command[1]
+        if name not in names:
+            names.append(name)
+
+    elif command[0] == "Jump":
+        name = command[1]
+        index = int(command[2])
+        if 0 <= index < len(names):
+            names.insert(index, name)
+
+    elif command[0] == "Dive":
+        index = int(command[1])
+        if 0 <= index < len(names):
+            names.pop(index)
+
+    elif command[0] == "First":
+        count = int(command[1])
+        print(" ".join(names[:count]))
+
+    elif command[0] == "Last":
+        count = int(command[1])
+        print(" ".join(names[-count:]))
+
+    elif command[0] == "Print":
+        normal_reversed = command[1]
+        if normal_reversed == "Normal":
+            print("Frogs: " + " ".join(names))
+            break
+
+        elif normal_reversed == "Reversed":
+            print("Frogs: " + " ".join(reversed(names)))
+            break
