@@ -1,0 +1,34 @@
+times = list(map(int, input().split()))
+command = input()
+
+while not command == "End":
+    tokens = command.split(" ")
+
+    if tokens[0] == "Complete":
+        index = int(tokens[1])
+        if 0 <= index < len(times):
+            times[index] = 0
+
+    elif tokens[0] == "Change":
+        index = int(tokens[1])
+        time = int(tokens[2])
+        if 0 <= index < len(times):
+            times[index] = time
+
+    elif tokens[0] == "Drop":
+        index = int(tokens[1])
+        if 0 <= index < len(times):
+            times[index] = -1
+
+    elif tokens[0] == "Count":
+        if tokens[1] == "Completed":
+            print(len([x for x in times if x == 0]))
+        elif tokens[1] == "Incomplete":
+            print(len([x for x in times if x > 0]))
+        elif tokens[1] == "Dropped":
+            print(len([x for x in times if x < 0]))
+
+    command = input()
+
+result = [str(x) for x in times if x > 0]
+print(" ".join(result))
