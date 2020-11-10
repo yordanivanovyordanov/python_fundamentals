@@ -1,0 +1,34 @@
+parts = input().split("|")
+command = input().split()
+
+even = []
+odd = []
+
+while not command[0] == "Done":
+    if command[0] == "Move":
+
+        if command[1] == "Left":
+            if 0 < int(command[2]) < len(parts):
+                parts[int(command[2])], parts[int(command[2]) - 1] = parts[int(command[2]) - 1], parts[int(command[2])]
+        elif command[1] == "Right":
+            if 0 <= int(command[2]) < len(parts) - 1:
+                parts[int(command[2])], parts[int(command[2]) + 1] = parts[int(command[2]) + 1], parts[int(command[2])]
+
+    elif command[0] == "Check Even":
+        for index in range(len(parts)):
+            if index % 2 == 0:
+                even.append(parts(int(index)))
+        print(" ".join(even))
+        even = []
+
+    elif command[0] == "Check Odd":
+        for index in range(len(parts)):
+            if index % 2 == 1:
+                odd.append(parts(int(index)))
+        print(" ".join(odd))
+        odd = []
+
+    command = input().split()
+
+weapon = "".join(parts)
+print(f"You crafted {weapon}!")
