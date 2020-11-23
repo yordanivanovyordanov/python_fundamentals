@@ -1,0 +1,13 @@
+text = input()
+
+characters = {}
+
+for char in text:
+    if not char == " ":
+        if char in characters:
+            characters[char] += 1
+        else:
+            characters[char] = 1
+
+for char in characters.items():
+    print(f"{char[0]} -> {char[1]}")
