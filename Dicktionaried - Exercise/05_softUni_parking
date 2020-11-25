@@ -1,0 +1,30 @@
+number = int(input())
+parking_place_dict = {}
+
+username = None
+license_plate_number = None
+
+for cars in range(number):
+    token = input().split()
+
+    if token[0] == "register":
+        username = token[1]
+        license_plate_number = token[2]
+
+        if username not in parking_place_dict:
+            parking_place_dict[username] = license_plate_number
+            print(f"{username} registered {license_plate_number} successfully")
+        else:
+            print(f"ERROR: already registered with plate number {license_plate_number}")
+
+    elif token[0] == "unregister":
+        username = token[1]
+
+        if username not in parking_place_dict:
+            print(f"ERROR: user {username} not found")
+        else:
+            parking_place_dict.pop(username)
+            print(f"{username} unregistered successfully")
+
+for (key, value) in parking_place_dict.items():
+    print(f"{key} => {value}")
