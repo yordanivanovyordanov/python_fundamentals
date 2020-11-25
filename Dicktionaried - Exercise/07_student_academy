@@ -1,0 +1,20 @@
+pairs = int(input())
+
+students = {}
+
+for pair in range(pairs):
+    name = input()
+    grade = float(input())
+
+    if name not in students:
+        students[name] = [grade]
+    else:
+        students[name].append(grade)
+
+students_grades_higher_450 = {key: sum(value) / len(value) for (key, value) in students.items()
+                              if sum(value) / len(value) >= 4.50}
+
+average_grade_sorted = sorted(students_grades_higher_450.items(), key=lambda x: -x[1])
+
+for students_average_grade in average_grade_sorted:
+    print(f"{students_average_grade[0]} -> {students_average_grade[1]:.2f}")
