@@ -1,0 +1,19 @@
+line = input().split(">")
+explode = 0
+after_explode = []
+
+for char in line:
+
+    if char[0].isdigit():
+        explode += int(char[0])
+
+        if len(char) <= explode:
+            explode -= len(char)
+            char = ">"
+        else:
+            char = ">" + "".join(list(char[explode::]))
+            explode = 0
+
+    after_explode.append(char)
+
+print("".join(after_explode))
