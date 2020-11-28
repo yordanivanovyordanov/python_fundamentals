@@ -1,0 +1,7 @@
+from itertools import groupby
+
+text = input()
+
+output_text = ''.join(char[0] for char in groupby(text))
+
+print(output_text)
