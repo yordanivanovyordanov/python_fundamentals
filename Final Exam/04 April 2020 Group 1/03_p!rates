@@ -1,0 +1,49 @@
+command_1 = input()
+cities = {}
+
+while not command_1 == "Sail":
+    tokens = command_1.split("||")
+    city = tokens[0]
+    population = int(tokens[1])
+    gold = int(tokens[2])
+
+    if city not in cities:
+        cities[city] = {"population": 0, "gold": 0}
+    cities[city]["population"] += population
+    cities[city]["gold"] += gold
+
+    command_1 = input()
+
+command_2 = input()
+while not command_2 == "End":
+    tokens = command_2.split("=>")
+    command = tokens[0]
+    city = tokens[1]
+
+    if command == "Plunder":
+        people = int(tokens[2])
+        gold = int(tokens[3])
+        cities[city]["population"] -= people
+        cities[city]["gold"] -= gold
+        print(f'{city} plundered! {gold} gold stolen, {people} citizens killed.')
+
+        if cities[city]["population"] <= 0 or cities[city]["gold"] <= 0:
+            print(f'{city} has been wiped off the map!')
+            del cities[city]
+
+    elif command == "Prosper":
+        gold = int(tokens[2])
+
+        if gold < 0:
+            print(f'Gold added cannot be a negative number!')
+        else:
+            cities[city]["gold"] += gold
+            print(f'{gold} gold added to the city treasury. {city} now has {cities[city]["gold"]} gold.')
+
+    command_2 = input()
+
+print(f'Ahoy, Captain! There are {len(cities)} wealthy settlements to go to:')
+cities = dict(sorted(cities.items(), key=lambda y: (-y[1]['gold'], y[0])))
+
+for key, value in cities.items():
+    print(f'{key} -> Population: {value["population"]} citizens, Gold: {value["gold"]} kg')
