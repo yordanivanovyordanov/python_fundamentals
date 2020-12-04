@@ -1,0 +1,62 @@
+n = int(input())
+
+plants = {}
+
+for i in range(n):
+    plant, rarity = input().split('<->')
+
+    if plant not in plants:
+        plants[plant] = [[], []]
+    plants[plant][0] = int(rarity)
+
+while True:
+    current_command = input()
+
+    if current_command == 'Exhibition':
+        break
+
+    tokens = current_command.split(': ')
+    command = tokens[0]
+
+    if command == 'Rate':
+        plant, rating = tokens[1].split(' - ')
+
+        if plant in plants:
+            plants[plant][1].append(float(rating))
+        else:
+            print('error')
+
+    elif command == 'Update':
+        plant, new_rarity = tokens[1].split(' - ')
+
+        if plant in plants:
+            plants[plant][0] = int(new_rarity)
+        else:
+            print('error')
+
+    elif command == 'Reset':
+        plant = tokens[1]
+
+        if plant in plants:
+            plants[plant][1] = []
+        else:
+            print('error')
+
+    else:
+        print('error')
+
+average_ratings = {}
+
+for key, value in plants.items():
+
+    if len(value[1]) == 0:
+        average = 0
+    else:
+        average = sum(value[1]) / len(value[1])
+    average_ratings[key] = [value[0], average]
+
+print('Plants for the exhibition:')
+sorted_plants = dict(sorted(average_ratings.items(), key=lambda x: (-x[1][0], -x[1][1])))
+
+for key, value in sorted_plants.items():
+    print(f'- {key}; Rarity: {value[0]}; Rating: {value[1]:.2f}')
